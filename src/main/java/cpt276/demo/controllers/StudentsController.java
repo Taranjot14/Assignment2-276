@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.DeleteMapping;
+// import org.springframework.web.bind.annotation.DeleteMapping;
 
 import cpt276.demo.models.StudentRepository;
 import cpt276.demo.models.Students;
@@ -52,7 +52,7 @@ public class StudentsController {
 
         studentRepo.save(new Students(newName, newColor, newGpa, newWeight, newHeight));
         response.setStatus(201);
-        return "students/view";
+        return "redirect:/students/view";
 
     }
 
@@ -80,6 +80,7 @@ public class StudentsController {
                                           @RequestParam int weight,
                                           @RequestParam int height,
                                           @RequestParam double gpa,
+                                          @RequestParam String hairColor,
                                           Model model) {
     
         List<Students> students = studentRepo.findByName(name);
@@ -92,6 +93,7 @@ public class StudentsController {
         student.setWeight(weight);
         student.setHeight(height);
         student.setGpa(gpa);
+        student.setHairColor(hairColor);
         studentRepo.save(student);
         return "redirect:/students/view";
     }

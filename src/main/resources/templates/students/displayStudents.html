@@ -5,17 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display Students</title>
     <link rel="stylesheet" href="dis.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .student {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .student-name {
+            font-weight: bold;
+            color: #007bff; /* Blue color for student names */
+        }
+        .student-gpa {
+            margin-top: 5px;
+            color: #555;
+        }
+        .back-button {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Display Students</h1>
         <div class="student-grid">
             <div th:each="student : ${us}" class="student"
-                 th:style="'background-color: #ffffff; width: ' + ${student.weight * 4} + 'px; height: ' + ${student.height * 8 } + 'px; border: 1px solid black;'">
+                 th:style="'width: ' + ${student.weight } + 'px; height: ' + ${student.height } + 'px;'">
                 <p class="student-name" th:text="${student.name}" th:style="'color: ' + ${student.hairColor}"></p>
                 <p class="student-gpa" th:text="${student.gpa}"></p>
             </div>
         </div>
+        <!-- Button to go back to home page -->
+        <a href="/home.html" class="back-button">Back to Home</a>
     </div>
 </body>
 </html>

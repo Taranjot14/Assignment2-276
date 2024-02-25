@@ -14,31 +14,47 @@
                 <strong>Error:</strong> <span th:text="${error}"></span>
             </div>
             <h1>Update Student</h1>
-            <form action="/students/update" method="post">
+            <form action="/students/update" method="post" onsubmit="return validateForm()">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="mb-3">
                     <label for="weight" class="form-label">Weight:</label>
-                    <input type="number" class="form-control" id="weight" name="weight">
+                    <input type="number" class="form-control" id="weight" name="weight" required>
                 </div>
                 <div class="mb-3">
                     <label for="height" class="form-label">Height:</label>
-                    <input type="number" class="form-control" id="height" name="height">
+                    <input type="number" class="form-control" id="height" name="height" required>
                 </div>
                 <div class="mb-3">
                     <label for="hairColor" class="form-label">Hair Color:</label>
-                    <input type="text" class="form-control" id="hairColor" name="hairColor">
+                    <input type="text" class="form-control" id="hairColor" name="hairColor" required>
                 </div>
                 <div class="mb-3">
                     <label for="gpa" class="form-label">GPA:</label>
-                    <input type="number" class="form-control" id="gpa" name="gpa" step="0.01">
+                    <input type="number" class="form-control" id="gpa" name="gpa" step="0.01" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>
 </main>
+
+<script>
+    function validateForm() {
+        // Check if any of the required fields are empty
+        if (document.getElementById("name").value === "" || 
+            document.getElementById("weight").value === "" ||
+            document.getElementById("height").value === "" ||
+            document.getElementById("hairColor").value === "" ||
+            document.getElementById("gpa").value === "") {
+            alert("Please fill in all fields.");
+            return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+    }
+</script>
+
 </body>
 </html>
