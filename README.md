@@ -10,3 +10,8 @@ Users can update the attributes of an existing student record. They can modify t
 
 Delete Student
 Users can delete an existing student record from the system. They can select the student to delete from the list of all students and confirm the deletion. Upon confirmation, the student record is permanently removed from the database.
+![CamScanner 02-25-2024 15 35_1](https://github.com/Taranjot14/Assignment2-276/assets/144305614/5b809528-1ba6-421b-af68-4add7b5dd3fa)
+
+
+
+
