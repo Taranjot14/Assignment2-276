@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Students</title>
+    <link rel="stylesheet" href="dis.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Display Students</h1>
+        <div class="student-grid">
+            <div th:each="student : ${us}" class="student"
+                 th:style="'background-color: #ffffff; width: ' + ${student.weight * 4} + 'px; height: ' + ${student.height * 8 } + 'px; border: 1px solid black;'">
+                <p class="student-name" th:text="${student.name}" th:style="'color: ' + ${student.hairColor}"></p>
+                <p class="student-gpa" th:text="${student.gpa}"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
