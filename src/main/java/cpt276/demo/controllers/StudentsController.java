@@ -87,7 +87,7 @@ public class StudentsController {
         
         if (students.isEmpty()) {
             model.addAttribute("error", "Student with name " + name + " not found.");
-            return "/students/update"; 
+            return "redirect:/students/update"; 
         }
         Students student = students.get(0);
         student.setWeight(weight);
